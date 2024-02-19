@@ -32,6 +32,19 @@ void Show_Rating(const Student& student, int size)
 	cout << endl;
 }
 
+double GPA(Student& student, int size)
+{
+	int counter_rating = 0;
+	for (int i = 0; i < size; i++)
+	{
+		counter_rating += student.reting_student[i].rating;
+	}
+
+	double GPA = counter_rating / 1.0 / 10;
+	return GPA;
+
+}
+
 int main()
 {
 	srand(static_cast<unsigned>(time(0)));
@@ -43,7 +56,9 @@ int main()
 
 	cout << student_1.full_name << endl;
 	Show_Rating(student_1, SIZE);
-	
+
+	double GPA_student = GPA(student_1, SIZE);
+	cout << "GPA = " << GPA_student << endl;
 
 
 
