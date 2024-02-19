@@ -42,11 +42,18 @@ double GPA(Student& student, int size)
 
 	double GPA = counter_rating / 1.0 / 10;
 	return GPA;
+}
 
+void Show_Student(const Student& student, int size)
+{
+	cout << student.full_name << endl;
+	Show_Rating(student, size);
 }
 
 int main()
 {
+	// ???????? 1
+
 	srand(static_cast<unsigned>(time(0)));
 	const int SIZE = 10;
 	Student student_1;
@@ -54,8 +61,7 @@ int main()
 	strcpy(student_1.full_name, "Loniuk Mykola Mykhailovych");
 	Fill_Rating(student_1, SIZE);
 
-	cout << student_1.full_name << endl;
-	Show_Rating(student_1, SIZE);
+	Show_Student(student_1, SIZE);
 
 	double GPA_student = GPA(student_1, SIZE);
 	cout << "GPA = " << GPA_student << endl;
