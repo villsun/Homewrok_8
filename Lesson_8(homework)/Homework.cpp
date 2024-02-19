@@ -6,7 +6,7 @@ using namespace std;
 
 struct Reting
 {
-	int rating : 1;
+	unsigned int rating : 1;
 };
 
 struct Student
@@ -15,8 +15,36 @@ struct Student
 	Reting reting_student[10];
 };
 
+void Fill_Rating(Student& student, int size)
+{
+	for (int i = 0; i < size; i++)
+	{
+		student.reting_student[i].rating = rand() % 2;
+	}
+}
+
+void Show_Rating(const Student& student, int size)
+{
+	for (int i = 0; i < size; i++)
+	{
+		cout << student.reting_student[i].rating << " ";
+	}
+	cout << endl;
+}
+
 int main()
 {
+	srand(static_cast<unsigned>(time(0)));
+	const int SIZE = 10;
+	Student student_1;
+
+	strcpy(student_1.full_name, "Loniuk Mykola Mykhailovych");
+	Fill_Rating(student_1, SIZE);
+
+	cout << student_1.full_name << endl;
+	Show_Rating(student_1, SIZE);
+	
+
 
 
 	return 0;
