@@ -73,14 +73,19 @@ void Add_Rating_Student(Student students[], int index, int size)
 	}
 }
 
-void Show_Student(const Student student[], int index, int size)
+void Show_Rating(const Student student[], int index, int size)
 {
-	cout << student[index].full_name << endl;
 	for (int i = 0; i < size; i++)
 	{
 		cout << student[index].rating_student[i].rating << ' ';
 	}
 	cout << endl;
+}
+
+void Show_Student(const Student student[], int index, int size)
+{
+	cout << student[index].full_name << endl;
+	Show_Rating(student, index, size);
 }
 
 void Show_Students(const Student students[], int size_1, int size_2)
@@ -89,7 +94,6 @@ void Show_Students(const Student students[], int size_1, int size_2)
 	{
 		Show_Student(students, i, size_2);
 	}
-	
 }
 
 int main()
@@ -114,7 +118,10 @@ int main()
 	const int SIZE = 10;
 	Student students[10];
 	
-	
+
+	/*Show_Students(students, SIZE, SIZE);*/
+	Show_Student(students, 0, SIZE);
+	Show_Rating(students, 0, SIZE);
 
 	
 
