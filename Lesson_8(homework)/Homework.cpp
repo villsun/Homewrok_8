@@ -12,14 +12,14 @@ struct Reting
 struct Student
 {
 	char full_name[100];
-	Reting reting_student[10];
+	Reting rating_student[10];
 };
 
 void Fill_Rating(Student& student, int size)
 {
 	for (int i = 0; i < size; i++)
 	{
-		student.reting_student[i].rating = rand() % 2;
+		student.rating_student[i].rating = rand() % 2;
 	}
 }
 
@@ -27,7 +27,7 @@ void Show_Rating(const Student& student, int size)
 {
 	for (int i = 0; i < size; i++)
 	{
-		cout << student.reting_student[i].rating << " ";
+		cout << student.rating_student[i].rating << " ";
 	}
 	cout << endl;
 }
@@ -37,7 +37,7 @@ double GPA(Student& student, int size)
 	int counter_rating = 0;
 	for (int i = 0; i < size; i++)
 	{
-		counter_rating += student.reting_student[i].rating;
+		counter_rating += student.rating_student[i].rating;
 	}
 
 	double GPA = counter_rating / 1.0 / 10;
@@ -53,6 +53,24 @@ void Show_Student(const Student& student, int size)
 void Add_Student(Student students[], char* full_name_student, int index)
 {
 	strcpy(students[index].full_name, full_name_student);
+}
+
+void Add_Rating_Student(Student students[], int index, int size)
+{
+	int rating;
+	for (int i = 0; i < size; i++)
+	{
+		cout << "Enter rating to student(0 or 1):\n";
+		do
+		{
+			cin >> rating;
+			if (rating < 0 || rating>1)
+			{
+				cout << "Error!\n";
+			}
+		} while (rating<0 || rating>1);
+		students[index].rating_student[i].rating = rating;
+	}
 }
 
 int main()
@@ -76,6 +94,13 @@ int main()
 
 	const int SIZE = 10;
 	Student students[10];
+
+	Add_Rating_Student(students, 0, SIZE);
+
+	for (int i = 0; i < SIZE; i++)
+	{
+		cout << students[0].rating_student[i].rating << ' ';
+	}
 
 	
 
