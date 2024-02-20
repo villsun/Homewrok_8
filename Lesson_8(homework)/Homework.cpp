@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS
+﻿#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <string.h>
 
@@ -50,12 +50,18 @@ void Show_Student(const Student& student, int size)
 	Show_Rating(student, size);
 }
 
+void Add_Student(Student students[], char* full_name_student, int index)
+{
+	strcpy(students[index].full_name, full_name_student);
+}
+
 int main()
 {
-	// ???????? 1
-
 	srand(static_cast<unsigned>(time(0)));
-	const int SIZE = 10;
+
+	// Завдання 1
+
+	/*const int SIZE = 10;
 	Student student_1;
 
 	strcpy(student_1.full_name, "Loniuk Mykola Mykhailovych");
@@ -64,7 +70,14 @@ int main()
 	Show_Student(student_1, SIZE);
 
 	double GPA_student = GPA(student_1, SIZE);
-	cout << "GPA = " << GPA_student << endl;
+	cout << "GPA = " << GPA_student << endl;*/
+
+	// Завдання 2
+
+	const int SIZE = 10;
+	Student students[10];
+
+	
 
 
 
