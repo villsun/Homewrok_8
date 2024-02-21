@@ -23,6 +23,18 @@ void Fill_Rating(Student& student, int size)
 	}
 }
 
+void Fill_Students_Rating(Student student[], int size_1, int size_2)
+{
+	for (int i = 0; i < size_1; i++)
+	{
+		for (int j = 0; j < size_2; j++)
+		{
+			student[i].rating_student[j].rating = rand() % 2;
+		}
+	}
+
+}
+
 void Show_Rating(const Student& student, int size)
 {
 	for (int i = 0; i < size; i++)
@@ -68,7 +80,7 @@ void Add_Rating_Student(Student students[], int index, int size)
 			{
 				cout << "Error!\n";
 			}
-		} while (rating<0 || rating>1);
+		} while (rating < 0 || rating>1);
 		students[index].rating_student[i].rating = rating;
 	}
 }
@@ -96,6 +108,24 @@ void Show_Students(const Student students[], int size_1, int size_2)
 	}
 }
 
+void Show_Debtor(const Student students[], int size_1, int size_2)
+{
+	cout << "Debtor:\n";
+	for (int i = 0; i < size_1; i++)
+	{
+		for (int j = 0; j < size_2; j++)
+		{
+			if (students[i].rating_student[j].rating == 0)
+			{
+				cout << students[i].full_name << endl;
+				break;
+			}
+		}
+	}
+}
+
+
+
 int main()
 {
 	srand(static_cast<unsigned>(time(0)));
@@ -117,13 +147,17 @@ int main()
 
 	const int SIZE = 10;
 	Student students[10];
-	
 
-	/*Show_Students(students, SIZE, SIZE);*/
-	Show_Student(students, 0, SIZE);
-	Show_Rating(students, 0, SIZE);
+	strcpy(students[0].full_name, "kola");
+	strcpy(students[1].full_name, "hopa");
 
-	
+	Fill_Students_Rating(students, 2, SIZE);
+
+	Show_Students(students, 2, SIZE);
+
+	Show_Debtor(students, 2, SIZE);
+
+
 
 
 
